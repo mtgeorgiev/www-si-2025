@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Форми</title>
+    <link href="./mystyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div>zero</div>
+    <form method="GET" action="page2.php" id="form1">
+        <input type="text" name="username" value="my name"/>
+        <input type="checkbox" name="gender" value="M" id="gender-M"><label for="gender-M">Male</label>
+        <input type="checkbox" name="gender" value="F"> Female
+        <input type="checkbox" name="gender" value="O"> Other
+        <input type="checkbox" name="othername" value="O"> Other 2
+        <input type="time" name="color-name" />
+
+        <div id="first">first div</div>
+        <div class="blue-background white">second div</div>
+        <div>third div</div>
+        <div>fourth div</div>
+        <div class="blue-background red">fifth div</div>
+        <div class="big-test-div">sixth div
+            <div>inner div</div>
+        </div>
+
+
+        <select name="age-group">
+            <optgroup label="Young">
+              <option value="1">Kid (0-12)</option>
+              <option value="2">Teen (13-19)</option>
+            </optgroup>
+            <option value="3">Adult (20+)</option>
+            <option value="4">Old (70+)</option>
+        </select>
+        <input type="submit" value="Вход" />
+    </form>
+
+    <form method="GET" action="page2.php" id="form2">
+        <div>last</div>
+    </form>
+</body>
+</html>
