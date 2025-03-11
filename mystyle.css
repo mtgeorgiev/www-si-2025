@@ -33,13 +33,26 @@ div {
 }
 
 div.big-test-div {
-    background-color: aqua;
+    background-color: #1f0300;
     width: 49%;
     height: 100px;
+    font: italic bold 16px / 30px Verdana, Consolas, sans-serif;
+    background-image: url(./kitten.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px 20px 1px 35px;
+    color: white;
+
+    position: absolute;
+    left: 50px;
+    top: 0px;
+    z-index: 5;
 }
 
 div.big-test-div div {
     background-color: yellow;
     width: 51%;
     height: 80px;
+    display: none;
 }
+
