@@ -26,6 +26,10 @@
             <!--<div>third inner div</div>-->
         </div>
 
+        <?php for ($index = 0; $index < 10; $index++): ?>
+            <div>PHP div <?php echo $index; ?></div>
+        <?php endfor; ?>
+
         <div>seventh div</div>
         <div>eight div</div>
         <div>ninth div</div>

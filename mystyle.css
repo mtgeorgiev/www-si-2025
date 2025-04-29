@@ -75,3 +75,7 @@ a:hover {
 a:focus {
     background-color: rgb(50, 211, 214);
 }
+
+.half-transparent {
+    opacity: 0.5;
+}
