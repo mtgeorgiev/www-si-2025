@@ -47,6 +47,31 @@ let promiseImitator = function (method, onSuccess, onFailure) {
     }
 }
 
+const isLoggedIn = () => {
+    fetch('./session.php')
+    .then(response => response.json())
+    .then(response => {
+        console.log(response);
+    });
+}
+
+const login = () => {
+    fetch('./session.php', {method: 'POST', body: JSON.stringify({'username': 'its me mario', 'password': '0000'})})
+   .then(response => response.json())
+   .then(response => {
+       console.log(response);
+   });
+}
+
+const loggout = () => {
+    fetch('./session.php', {method: 'DELETE'})
+   .then(response => response.json())
+   .then(response => {
+       console.log(response);
+   });
+}
+
+
 
 //promiseImitator(() => {return 52;}, res => console.log('result is', res), error => console.error('error', error));
 

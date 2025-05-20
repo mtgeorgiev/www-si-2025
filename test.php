@@ -2,6 +2,8 @@
 
 require_once 'bootstrap.php';
 
+var_dump($_SESSION);
+
 
 // $users = DbRequestsFactory::getInstance()->getAllUsers();
 
