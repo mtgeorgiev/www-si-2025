@@ -79,3 +79,28 @@ a:focus {
 .half-transparent {
     opacity: 0.5;
 }
+
+
+#register {
+    width: 200px;
+    padding: 10px;
+    position: absolute;
+    right: 50px;
+    background-color: aqua;
+}
+
+#register input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#register .error-message {
+    color: red;
+    font-weight: bold;
+}
+
+#register .success-message {
+    color: green;
+    font-weight: bold;
+}

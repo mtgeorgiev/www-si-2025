@@ -19,6 +19,15 @@ spl_autoload_register(function ($class) {
 
 });
 
-set_exception_handler(function ($exception) {
-    // TODO implement some other day
+set_exception_handler(function ($exception)
+{
+    if ($exception instanceof RegisterUserException) {
+        http_response_code(400);
+        $error = $exception->getMessage();
+    } else {
+        http_response_code(500); // Internal Server Error
+        $error = "Unknown error occurred";
+    }
+    
+    echo json_encode(['error' => $error], JSON_UNESCAPED_UNICODE);
 });

@@ -71,6 +71,26 @@ const loggout = () => {
    });
 }
 
+document.getElementById('register')
+        .addEventListener('submit', event => {
+            event.preventDefault();
+
+            let userData = {
+                'username': event.target.querySelector('input[name="username"]').value,
+                'password': event.target.querySelector('input[name="password"]').value,
+            };
+            fetch('./user.php', {method: 'POST', body: JSON.stringify(userData)})
+                .then(r=>r.json())
+                .then(response => {
+                    if (response.error) { // registration failed
+                        event.target.querySelector('.error-message').innerText = response.error;
+                        event.target.querySelector('.success-message').innerText = '';
+                    } else {
+                        event.target.querySelector('.error-message').innerText = '';
+                        event.target.querySelector('.success-message').innerText = 'Успешна регистрация. Можете да се логнете.';
+                    }
+                });
+        });
 
 
 //promiseImitator(() => {return 52;}, res => console.log('result is', res), error => console.error('error', error));

@@ -41,4 +41,37 @@ class MysqlDbRequests implements DbRequests
         return $userData ? User::fromArray($userData) : null;
     }
 
+    public function insertUser(string $username, string $password): ?User
+    {
+        $connection = (new Db())->getConnection();
+
+        $insertStatement = $connection->prepare("INSERT INTO users (`username`, `password`) VALUES (:username, :pasword)");
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $insertResult = $insertStatement->execute([
+            'username' => $username,
+            'pasword' => $hashedPassword
+        ]);
+
+        if ($insertResult) {
+            $id = $connection->lastInsertId();
+
+            return new User($id, $username);
+        }
+
+        $errorCode = $insertStatement->errorCode();
+
+        if ($errorCode === '23000') {
+            // Duplicate entry error
+            // This means the username already exists
+
+            throw new RegisterUserException("Потребителското име вече е заето");
+        }
+
+        throw new RegisterUserException("Грешка при създаване на потребител. Опитайте пак по-късно.");
+
+        // error_log("Error inserting user: " . $errorInfo[2]);
+    
+    }
+
 }

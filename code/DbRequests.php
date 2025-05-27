@@ -8,6 +8,8 @@ interface DbRequests
 
     public function getUserByUsername(string $username): ?User;
 
+    public function insertUser(string $username, string $password): ?User;
+
     // public function createUser(array $userData): bool;
 
     // public function updateUser(int $id, array $userData): bool;
