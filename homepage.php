@@ -68,5 +68,17 @@
     <input type="button" value="Покажи името на тайния агент" id="button1" />
     <p id="secret-agent-name"></p>
     <p id="secret-agent-age"></p>
+    <?php
+
+
+    $filename = './files/p1.jpg';
+
+    $mimetype = mime_content_type($filename);
+    $imageData = file_get_contents($filename);
+    $base64 = base64_encode($imageData);
+
+    echo "<img src='data:{$mimetype};base64,{$base64}'>";
+    ?>
+
 </body>
 </html>
